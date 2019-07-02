@@ -1,34 +1,64 @@
 <template>
-    <div class="bg-pink-500 p-8">
-        <div class="border-red-700 border-4 p-3">
-            <h1 class="text-4xl md:text-6xl font-black text-blue-700 font-cool">Pens-as-a-Service</h1>
-            <h3 class="font-heavy text-blue-300 text-2xl">The only PaaS you need!</h3>
-        </div>
-        <div class="border-red-700 border-4 p-3 mt-5">
-            <h2 class="text-2xl text-white font-cool font-bold underline">Check out all of our cool pens!</h2>
-            <div class="flex flex-wrap">
-                <div v-for="pen in pens" :key="pen.name" class="w-1/2">
-                    <div class="m-2 bg-pink-400 border-4 border-white">
-                        <img :src="pen.url" class="mx-auto shadow">
-                        <p class="pt-4 text-xl">{{ pen.name }}</p>
-                        <br>
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold font-heavy py-2 px-4 rounded mb-2">
-                            {{ pen.price}}
-                        </button>
-                    </div>
+    <div>
+        <div>
+            <b-navbar toggleable="lg" type="dark" variant="dark">
+                <b-container>
+                    <b-navbar-brand href="#">Pens-as-a-Service</b-navbar-brand>
+
+                    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+                    <b-collapse id="nav-collapse" is-nav>
+                        <b-navbar-nav>
+                            <b-nav-item href="#">Store</b-nav-item>
+                            <b-nav-item href="#">About</b-nav-item>
+                            <b-nav-item href="#">Blog</b-nav-item>
+                            <b-nav-item href="#">Contact us</b-nav-item>
+                        </b-navbar-nav>
+
+                        <!-- Right aligned nav items -->
+                        <b-navbar-nav class="ml-auto">
+                            <b-nav-form>
+                                <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+                                <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+                            </b-nav-form>
+
+                            <b-nav-item-dropdown text="Lang" right>
+                                <b-dropdown-item href="#">EN</b-dropdown-item>
+                                <b-dropdown-item href="#">ES</b-dropdown-item>
+                                <b-dropdown-item href="#">RU</b-dropdown-item>
+                                <b-dropdown-item href="#">FA</b-dropdown-item>
+                            </b-nav-item-dropdown>
+                        </b-navbar-nav>
+                    </b-collapse>
+                </b-container>
+            </b-navbar>
+            <b-container>
+                <div>
+                    <b-jumbotron class="mt-3" header="Pens-as-a-Service" lead="The only PaaS you need!"
+                                 bg-variant="light"></b-jumbotron>
                 </div>
-            </div>
+                <b-row>
+                    <b-col cols="auto" md="6" v-for="pen in pens" :key="pen">
+                        <b-card
+                                :title="pen.name"
+                                :img-src="pen.url"
+                                class="mb-2"
+                        >
+                            <b-button href="#" variant="primary">{{pen.price}}</b-button>
+                        </b-card>
+                    </b-col>
+                </b-row>
+            </b-container>
         </div>
+
     </div>
 </template>
 
 <script>
-    // @ is an alias to /src
-
     export default {
         name: 'home',
         components: {},
-        data () {
+        data() {
             return {
                 pens: [
                     {
