@@ -9,7 +9,7 @@
             <div class="flex flex-wrap">
                 <div v-for="pen in pens" :key="pen.name" class="w-1/2">
                     <div class="m-2 bg-pink-400 border-4 border-white">
-                        <img :src="pen.url" alt="">
+                        <img :src="pen.url" class="mx-auto shadow">
                         <p class="pt-4 text-xl">{{ pen.name }}</p>
                         <br>
                         <button class="bg-red-500 hover:bg-red-700 text-white font-bold font-heavy py-2 px-4 rounded mb-2">
