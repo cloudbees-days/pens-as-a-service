@@ -10,7 +10,9 @@
   tag: staging
   service: codeship-heroku-deployment
   command: codeship_heroku deploy /deploy pens-as-a-service-staging
-- name: deploy to production
+- type: manual
   tag: master
-  service: codeship-heroku-deployment
-  command: codeship_heroku deploy /deploy pens-as-a-service
+  steps:
+    - name: deploy to production
+      service: codeship-heroku-deployment
+      command: codeship_heroku deploy /deploy pens-as-a-service
