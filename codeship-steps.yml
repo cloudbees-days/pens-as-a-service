@@ -1,0 +1,16 @@
+- type: parallel
+  steps:
+  - name: lint
+    service: vuejs-app
+    command: yarn lint
+  - name: unit tests
+    service: vuejs-app
+    command: yarn test:unit
+- name: deploy to staging
+  tag: staging
+  service: codeship-heroku-deployment
+  command: codeship_heroku deploy /deploy pens-as-a-service-staging
+- name: deploy to production
+  tag: master
+  service: codeship-heroku-deployment
+  command: codeship_heroku deploy /deploy pens-as-a-service
