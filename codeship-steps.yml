@@ -6,10 +6,12 @@
   - name: unit tests
     service: vuejs-app
     command: yarn test:unit
+
 - name: deploy to staging
   tag: staging
   service: codeship-heroku-deployment
   command: codeship_heroku deploy /deploy pens-as-a-service-staging
+
 - type: manual
   tag: master
   steps:
