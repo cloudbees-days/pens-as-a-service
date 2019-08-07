@@ -1,0 +1,15 @@
+{
+    "name": "Pens-as-a-service",
+    "description": "The future of pen buying technology",
+    "keywords": [
+        "vuejs"
+    ],
+    "buildpacks": [
+        {
+            "url": "heroku/nodejs"
+        },
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-static"
+        }
+    ]
+}
