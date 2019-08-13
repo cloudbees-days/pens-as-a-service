@@ -10,11 +10,11 @@
 - name: deploy to staging
   tag: staging
   service: codeship-heroku-deployment
-  command: codeship_heroku deploy /deploy pens-as-a-service-staging
+  command: codeship_heroku deploy /deploy abrahammer-pens-as-a-service
 
 - type: manual
   tag: master
   steps:
     - name: deploy to production
       service: codeship-heroku-deployment
-      command: codeship_heroku deploy /deploy pens-as-a-service
+      command: codeship_heroku deploy /deploy abrahammer-pens-as-a-service
